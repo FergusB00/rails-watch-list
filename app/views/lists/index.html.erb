@@ -1,0 +1,11 @@
+<body>
+  <div class="container">
+    <div class="d-flex row justify-content-center">
+      <h1 class="py-2">Movie Lists</h1>
+      <p class="pb-2"><%= link_to "Add new list", new_list_path %></p>
+    </div>
+    <ul>
+      <%= render "lists/list", lists: @lists%>
+    </ul>
+  </div>
+</body>
