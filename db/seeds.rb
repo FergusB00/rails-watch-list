@@ -10,12 +10,26 @@
 puts 'Dropping database'
 Movie.destroy_all
 
+require "json"
+require "open-uri"
+
+url = "https://tmdb.lewagon.com/movie/top_rated"
+movies_data = URI.open(url).read
+movies_hash = JSON.parse(movies_data)
+movies_array = movies_hash["results"]
+
 puts 'Creating restaurants...'
-100.times do
+
+movies_array.each do |movie|
+  title = movie["title"]
+  overview = movie["overview"]
+  image = "https://image.tmdb.org/t/p/w185/#{movie['poster_path']}"
+  rating = movie["vote_average"]
   Movie.create(
-    title: Faker::Movie.title,
-    overview: Faker::Movie.quote,
-    rating: rand(0..10)
+    title: title,
+    overview: overview,
+    poster_url: image,
+    rating: rating
   )
 end
 

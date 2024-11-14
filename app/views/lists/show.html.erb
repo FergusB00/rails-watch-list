@@ -1,4 +1,35 @@
 <div class="container pt-4">
-  <h3><strong><%= @list.name %></strong></h3>
-  <%= link_to "Back to all lists", lists_path %>
+
+  <div>
+    <h3><strong><%= @list.name %></strong></h3>
+  </div>
+
+  <div>
+    <%= simple_form_for([@list, @bookmark]) do |f| %>
+      <%= f.input :comment %>
+      <%= f.association :movie %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+
+<%# <div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div> %>
+bookmark.movie.poster_url
+
+  <div>
+    <p><strong>Bookmarks</strong></p>
+    <ul class="list-group">
+    <% @list.bookmarks.each do |bookmark| %>
+      <%= image_tag bookmark.movie.poster_url %>
+      <li class="list-group-item"><%= bookmark.movie.title %></li>
+      <li class="list-group-item"><%= bookmark.comment %></li>
+    <% end %>
+  </div>
+
+  <%= link_to "All lists", lists_path %>
 </div>

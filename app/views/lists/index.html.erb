@@ -1,8 +1,13 @@
 <body>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_2/v1675181567/britishschoolmilancom/szkmdzp2tjtrbdjlyfhq/Edgeoftheworld1.jpg);">
+    <div class="container">
+      <h1><strong>Movie Lists</strong>!</h1>
+      <a class="btn btn-flat" href="#"><%= link_to "Add new list", new_list_path %></a>
+    </div>
+  </div>
   <div class="container">
     <div class="d-flex row justify-content-center">
-      <h1 class="py-2">Movie Lists</h1>
-      <p class="pb-2"><%= link_to "Add new list", new_list_path %></p>
+      <h1 class="py-2">Your Lists</h1>
     </div>
     <ul>
       <%= render "lists/list", lists: @lists%>
