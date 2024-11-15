@@ -1,8 +1,20 @@
 <div class="container pt-4">
 
-  <div>
-    <h3><strong><%= @list.name %></strong></h3>
+  <div class="card-category" style="height: 400px">
+    <% if @list.photo.attached? %>
+    <div class="card-category d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.photo.key, height: 400, crop: :fill %>'); height: 400px; background-size: cover; color: white; font-size: 44px;">
+      <strong><%= @list.name %></strong>
+    </div>
+    <% else %>
+    <div class="card-category d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://st.depositphotos.com/2097531/2145/i/450/depositphotos_21458013-stock-photo-vintage-theatre-spot-light-on.jpg); height: 400px; background-size: cover; color: white; font-size: 44px;">
+      <strong><%= @list.name %></strong>
+    </div>
+    <% end %>
   </div>
+
+  <%# <div>
+    <h3><strong><%= @list.name %></strong></h3>
+  <%# </div> %>
 
   <div>
     <p><strong>Your bookmarked films</strong></p>
