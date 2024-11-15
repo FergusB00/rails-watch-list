@@ -5,31 +5,31 @@
   </div>
 
   <div>
-    <%= simple_form_for([@list, @bookmark]) do |f| %>
-      <%= f.input :comment %>
-      <%= f.association :movie %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
+    <p><strong>Your bookmarked films</strong></p>
 
-<%# <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div> %>
-bookmark.movie.poster_url
+    <div class="card-list">
+      <%# <ul class="list-group">  %>
+      <% @list.bookmarks.each do |bookmark| %>
+      <div class="card">
+        <%= image_tag bookmark.movie.poster_url, class: "card-img-top" %>
+        <div class="card-body">
+          <li class="list-group-item card-title"><strong><%= bookmark.movie.title %></strong></li>
+          <li class="list-group-item card-title"><%= bookmark.movie.overview %></li>
+          <li class="list-group-item card-text"><em><%= "❝#{bookmark.comment}❞" %></em></li>
+          <%= link_to "Delete", bookmark_path(bookmark),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn w-100" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
 
-  <div>
-    <p><strong>Bookmarks</strong></p>
-    <ul class="list-group">
-    <% @list.bookmarks.each do |bookmark| %>
-      <%= image_tag bookmark.movie.poster_url %>
-      <li class="list-group-item"><%= bookmark.movie.title %></li>
-      <li class="list-group-item"><%= bookmark.comment %></li>
-    <% end %>
-  </div>
+    <div class="mb-3 mt-4">
+      <%= simple_form_for([@list, @bookmark]) do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
 
-  <%= link_to "All lists", lists_path %>
+  </div>
 </div>
