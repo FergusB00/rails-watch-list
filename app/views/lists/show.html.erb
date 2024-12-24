@@ -1,38 +1,18 @@
 <div class="container pt-4">
 
-  <div class="card-category" style="height: 400px">
-    <% if @list.photo.attached? %>
-    <div class="card-category d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @article.photo.key, height: 400, crop: :fill %>'); height: 400px; background-size: cover; color: white; font-size: 44px;">
+  <div class="card-category" style="height: 400px;">
+    <% background_image = @list.photo.attached? ? cl_image_path(@article.photo.key, height: 400, crop: :fill) : 'https://st.depositphotos.com/2097531/2145/i/450/depositphotos_21458013-stock-photo-vintage-theatre-spot-light-on.jpg' %>
+    <div class="card-category d-flex justify-content-center align-items-center"
+       style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= background_image %>'); height: 400px; background-size: cover; color: white; font-size: 44px;">
       <strong><%= @list.name %></strong>
     </div>
-    <% else %>
-    <div class="card-category d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://st.depositphotos.com/2097531/2145/i/450/depositphotos_21458013-stock-photo-vintage-theatre-spot-light-on.jpg); height: 400px; background-size: cover; color: white; font-size: 44px;">
-      <strong><%= @list.name %></strong>
-    </div>
-    <% end %>
   </div>
-
-  <%# <div>
-    <h3><strong><%= @list.name %></strong></h3>
-  <%# </div> %>
 
   <div>
     <p><strong>Your bookmarked films</strong></p>
 
-    <div class="card-list">
-      <%# <ul class="list-group">  %>
-      <% @list.bookmarks.each do |bookmark| %>
-      <div class="card">
-        <%= image_tag bookmark.movie.poster_url, class: "card-img-top" %>
-        <div class="card-body">
-          <li class="list-group-item card-title"><strong><%= bookmark.movie.title %></strong></li>
-          <li class="list-group-item card-title"><%= bookmark.movie.overview %></li>
-          <li class="list-group-item card-text"><em><%= "❝#{bookmark.comment}❞" %></em></li>
-          <%= link_to "Delete", bookmark_path(bookmark),
-          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn w-100" %>
-        </div>
-      </div>
-      <% end %>
+    <div class="list-show-movie-cards">
+      <%= render "bookmarks/bookmark" %>
     </div>
 
     <div class="mb-3 mt-4">

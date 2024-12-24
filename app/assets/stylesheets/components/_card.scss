@@ -48,3 +48,18 @@
     }
   }
 }
+
+.list-show-movie-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 14px;
+}
+
+.list-show-movie-card {
+  width: 20rem;
+}
+
+.list-show-movie-card  li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
