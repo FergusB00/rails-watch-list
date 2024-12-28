@@ -15,11 +15,16 @@
       <%= render "bookmarks/bookmark" %>
     </div>
 
-    <div class="mb-3 mt-4">
+    <h1 class="new-bookmark-title">New bookmark</h1>
+    <div class="new-bookmark">
       <%= simple_form_for([@list, @bookmark]) do |f| %>
-        <%= f.input :comment %>
-        <%= f.association :movie %>
-        <%= f.button :submit %>
+        <div class="form-group new-bookmark-form-group">
+          <%= f.input :comment, label: "Add a Comment", input_html: { class: "new-bookmark-form-control" } %>
+          <%= f.association :movie, label: "Select a Movie", input_html: { class: "new-bookmark-form-control" } %>
+        </div>
+        <div class="new-bookmark-form-action">
+          <%= f.button :submit, class: "new-bookmark-btn" %>
+        </div>
       <% end %>
     </div>
 
