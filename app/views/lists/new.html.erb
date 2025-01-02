@@ -1,5 +1,9 @@
 <div class="container">
-  <h2><strong>Create a new list</strong></h2>
-  <%= render "form", list: @list %>
-  <%= link_to "Back to hompepage", lists_path, class: "btn mt-3" %>
+  <%= link_to lists_path, class: "back-link" do %>
+    <i class="fa-solid fa-angles-left fa-lg back-icon"></i>
+  <% end %>
+  <h1 class="new-list-title">New list</h1>
+  <div class="new-list">
+    <%= render "form", list: @list %>
+  </div>
 </div>

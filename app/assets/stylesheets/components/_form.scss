@@ -1,4 +1,4 @@
-.new-bookmark {
+.new-bookmark, .new-list {
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ddd;
@@ -6,7 +6,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.new-bookmark-title {
+.new-bookmark-title, .new-list-title {
   text-align: center;
   font-size: 24px;
   color: #333;
@@ -15,11 +15,11 @@
   margin-top: 20px;
 }
 
-.new-bookmark-form-group {
+.new-bookmark-form-group, .new-form-group {
   margin-bottom: 15px;
 }
 
-.new-bookmark-form-control {
+.new-bookmark-form-control, .new-list-form-control {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -28,19 +28,21 @@
   background-color: #ffffff;
 }
 
-.new-bookmark-btn {
+.new-bookmark-btn, .new-list-btn {
   background-color: #f4a261;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 5px 20px;
+  font-size: 24px;
+  font-weight: bold;
   border-radius: 4px;
   cursor: pointer;
+  width: 50%;
 }
 
-.new-bookmark-btn:hover {
+.new-bookmark-btn:hover, .new-list-btn:hover {
   background-color:#e76f51;
 }
 
-.new-bookmark-form-action {
+.new-bookmark-form-action, .new-list-form-action {
   text-align: center;
 }

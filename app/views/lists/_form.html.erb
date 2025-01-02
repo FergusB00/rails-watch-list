@@ -1,5 +1,12 @@
 <%= simple_form_for(list) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
+  <div class="form-group new-form-group">
+    <%= f.input :name, input_html: { class: "new-list-form-control" } %>
+    <%= f.input :photo, as: :file, input_html: { class: "new-list-form-control" } %>
+  </div>
+  <div class="new-list-form-action">
+    <%= button_tag(type: 'submit', class: 'new-list-btn') do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  </div>
+
 <% end %>

@@ -1,5 +1,7 @@
 <div class="container pt-4">
-
+  <%= link_to lists_path, class: "back-link mb-3" do %>
+      <i class="fa-solid fa-angles-left fa-lg back-icon"></i>
+    <% end %>
   <div class="card-category" style="height: 400px;">
     <% background_image = @list.photo.attached? ? cl_image_path(@article.photo.key, height: 400, crop: :fill) : 'https://st.depositphotos.com/2097531/2145/i/450/depositphotos_21458013-stock-photo-vintage-theatre-spot-light-on.jpg' %>
     <div class="card-category d-flex justify-content-center align-items-center"
