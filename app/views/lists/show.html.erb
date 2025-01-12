@@ -21,8 +21,8 @@
     <div class="new-bookmark">
       <%= simple_form_for([@list, @bookmark]) do |f| %>
         <div class="form-group new-bookmark-form-group">
-          <%= f.input :comment, label: "Add a Comment", input_html: { class: "new-bookmark-form-control" } %>
-          <%= f.association :movie, label: "Select a Movie", input_html: { class: "new-bookmark-form-control" } %>
+          <%= f.input :comment, label: "Add a Comment", input_html: { class: "new-bookmark-form-control", placeholder: "A great move, with a brilliant twist..." } %>
+          <%= f.association :movie, label: "Select a Movie", input_html: { class: "new-bookmark-form-control"} %>
         </div>
         <div class="new-bookmark-form-action">
           <%= f.button :submit, class: "new-bookmark-btn" %>
